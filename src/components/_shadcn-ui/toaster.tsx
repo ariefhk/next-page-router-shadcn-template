@@ -1,8 +1,17 @@
-import { TOAST_REMOVE_DELAY, useToast } from "@/common/hooks/use-toast";
-import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/components/_shadcn-ui/toast";
+"use client"
+
+import { TOAST_REMOVE_DELAY, useToast } from "@/common/hooks/use-toast"
+import {
+  Toast,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+} from "@/components/_shadcn-ui/toast"
 
 export function Toaster() {
-  const { toasts } = useToast();
+  const { toasts } = useToast()
 
   return (
     <ToastProvider duration={TOAST_REMOVE_DELAY}>
@@ -11,14 +20,16 @@ export function Toaster() {
           <Toast key={id} {...props}>
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && <ToastDescription>{description}</ToastDescription>}
+              {description && (
+                <ToastDescription>{description}</ToastDescription>
+              )}
             </div>
             {action}
             <ToastClose />
           </Toast>
-        );
+        )
       })}
       <ToastViewport />
     </ToastProvider>
-  );
+  )
 }
