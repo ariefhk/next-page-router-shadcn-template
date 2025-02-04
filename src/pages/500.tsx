@@ -1,4 +1,4 @@
-import Error500Page from "@/components/pages/ErrorPage/Error500Page"
+import Error500Page from "@/components/pages/error-page/error-500-page"
 import { useEffect, useState } from "react"
 
 const Page = () => {
